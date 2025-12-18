@@ -1,0 +1,43 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(docker ps:*)",
+      "Bash(find:*)",
+      "Bash(cat:*)",
+      "Bash(uv run python:*)",
+      "Bash(gh pr view:*)",
+      "Bash(gh pr checks:*)",
+      "Bash(gh api:*)",
+      "Bash(gh auth:*)",
+      "Bash(gh run view:*)",
+      "Bash(grep:*)",
+      "Bash(uv run pre-commit run:*)",
+      "Bash(gh run:*)",
+      "Bash(ls:*)",
+      "mcp__playwright__browser_click",
+      "mcp__playwright__browser_take_screenshot",
+      "mcp__playwright__browser_snapshot",
+      "mcp__playwright__browser_evaluate",
+      "mcp__playwright__browser_navigate",
+      "mcp__playwright__browser_resize",
+      "mcp__playwright__browser_wait_for",
+      "Bash(cp:*)",
+      "WebSearch",
+      "Skill(git-practices)",
+      "SKill(helm-infra)",
+      "Skill(python-style)",
+      "Bash(pkill:*)",
+      "Bash(helm template:*)",
+      "Bash(kubectl get:*)",
+      "Bash(kubectl logs:*)",
+      "Bash(kubectl describe:*)"
+    ],
+    "deny": [],
+    "ask": []
+  },
+  "alwaysThinkingEnabled": true,
+  "env": {
+        "CLAUDE_CODE_MAX_OUTPUT_TOKENS": "64000",
+        "MAX_THINKING_TOKENS": "31999"
+    }
+}
