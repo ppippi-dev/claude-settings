@@ -1,6 +1,6 @@
 ---
 name: helm-infra
-description: Helm 차트와 Kubernetes 인프라 작업 가이드. values.yaml 오버라이딩 규칙, helm template 검증, 배포 워크플로우. 사용 시점: (1) Helm 차트 수정/배포 요청 시, (2) values.yaml 관련 작업 시, (3) Kubernetes 리소스 설정 시, (4) helm install/upgrade 요청 시.
+description: "Helm 차트와 Kubernetes 인프라 작업 가이드. values.yaml 오버라이딩 규칙, helm template 검증, 배포 워크플로우. 사용 시점: (1) Helm 차트 수정/배포 요청 시, (2) values.yaml 관련 작업 시, (3) Kubernetes 리소스 설정 시, (4) helm install/upgrade 요청 시."
 ---
 
 # Helm / Infrastructure

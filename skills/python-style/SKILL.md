@@ -1,6 +1,6 @@
 ---
 name: python-style
-description: Python 코드 작성 스타일 가이드. 파이써닉한 코드, 가독성, 로깅, 타입 힌트, 파일 구조 규칙. 사용 시점: (1) Python 코드 작성/수정 시, (2) Python 코드 리뷰 시, (3) Python 프로젝트 구조 설계 시.
+description: "Python 코드 작성 스타일 가이드. 파이써닉한 코드, 가독성, 로깅, 타입 힌트, 파일 구조 규칙. 사용 시점: (1) Python 코드 작성/수정 시, (2) Python 코드 리뷰 시, (3) Python 프로젝트 구조 설계 시."
 ---
 
 # Python Code Style

@@ -1,6 +1,6 @@
 ---
 name: git-practices
-description: Git 커밋, 푸시, PR 작업을 위한 가이드. Conventional Commits 형식, 브랜치 네이밍, 시크릿 검사 포함. 사용 시점: (1) git commit 요청 시, (2) git push 요청 시, (3) PR 생성 요청 시, (4) 브랜치 생성/이름 관련 질문 시.
+description: "Git 커밋, 푸시, PR 작업을 위한 가이드. Conventional Commits 형식, 브랜치 네이밍, 시크릿 검사 포함. 사용 시점: (1) git commit 요청 시, (2) git push 요청 시, (3) PR 생성 요청 시, (4) 브랜치 생성/이름 관련 질문 시."
 ---
 
 # Git Practices
