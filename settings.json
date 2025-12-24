@@ -26,6 +26,7 @@
       "Skill(git-practices)",
       "SKill(helm-infra)",
       "Skill(python-style)",
+      "Skill(commit)",
       "Bash(pkill:*)",
       "Bash(helm template:*)",
       "Bash(kubectl get:*)",

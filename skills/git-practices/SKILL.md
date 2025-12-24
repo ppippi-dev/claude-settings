@@ -61,7 +61,8 @@ git commit -m "Changes"
 
 1. **시크릿 검사**: API 키, 비밀번호, 토큰 등 민감 정보 확인
 2. **디버그 코드 제거**: console.log, print 등 제거
-3. **Python 프로젝트**: `uv run pre-commit run` 실행
+3. **파일 끝 줄바꿈 검증**: 모든 파일이 newline으로 끝나는지 확인
+4. **Python 프로젝트**: `uv run pre-commit run` 실행
 
 ## Commit Rules
 
