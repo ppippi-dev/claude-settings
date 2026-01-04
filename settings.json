@@ -44,6 +44,7 @@
       "Skill(git-practices)",
       "Skill(helm-infra)",
       "Skill(python-style)",
+      "Skill(codex-search)",
       "WebFetch(domain:*)",
       "WebSearch",
       "mcp__playwright__browser_click",
