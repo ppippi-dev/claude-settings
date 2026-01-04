@@ -17,6 +17,7 @@
       "Bash(docker ps:*)",
       "Bash(docker run:*)",
       "Bash(find:*)",
+      "Bash(codex exec:*)",
       "Bash(gh api:*)",
       "Bash(gh auth:*)",
       "Bash(gh issue list:*)",

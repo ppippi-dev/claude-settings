@@ -1,69 +1,32 @@
 ---
 name: codex-search
-description: "웹 검색, 브레인스토밍, 코드 리뷰, second opinion이 필요할 때 codex CLI를 호출. 이 스킬은 proactively 사용되어야 합니다. 사용 시점: (1) 최신 정보/뉴스가 필요할 때, (2) 실시간 데이터 조회 시, (3) Claude 지식 범위 외 정보 필요 시, (4) 복잡한 문제에 대한 브레인스토밍/아이디어 논의가 필요할 때, (5) 코드 설계/구현 방향에 대한 피드백이 필요할 때, (6) Claude가 불확실하여 second opinion이 필요할 때."
+description: "Claude가 답변에 확신이 없거나 검증이 필요할 때 codex CLI로 second opinion을 얻음. 사용 시점: (1) WebSearch 결과가 불충분하거나 애매할 때, (2) 복잡한 코드/설계 결정에서 확신이 없을 때, (3) Claude가 작성한 코드의 적합성/품질 검증이 필요할 때, (4) 브레인스토밍이나 다양한 관점이 필요할 때, (5) 여러 선택지 중 최선을 결정하기 어려울 때."
 ---
 
 # Codex Assistant
 
-웹 검색, 브레인스토밍, 코드 리뷰, second opinion이 필요한 상황에서 codex CLI를 활용합니다.
-
-## 사용 시점
-
-### 1. 웹 검색
-- Claude의 지식 cutoff 이후 정보가 필요할 때
-- 실시간 데이터 (날씨, 주가, 뉴스 등) 조회 시
-- 특정 웹사이트나 문서의 최신 내용 확인 시
-- 사용자가 "검색해줘", "찾아봐" 등 명시적으로 요청할 때
-
-### 2. 브레인스토밍/아이디어 논의
-- 복잡한 문제에 대해 다양한 관점이 필요할 때
-- 새로운 기능이나 프로젝트 방향을 구상할 때
-- 창의적인 해결책을 모색할 때
-
-### 3. 코드 리뷰/설계 논의
-- 구현 방향에 대한 피드백이 필요할 때
-- 아키텍처 결정에 대한 검토가 필요할 때
-- 코드 품질이나 패턴에 대한 의견이 필요할 때
-
-### 4. Second Opinion
-- Claude가 확신이 없는 판단을 해야 할 때
-- 여러 선택지 중 최선을 결정하기 어려울 때
-- 복잡한 trade-off가 있는 결정을 내려야 할 때
-
 ## 사용 방법
 
 ```bash
-# 비대화형 실행 (권장)
-codex exec "질문 또는 요청"
+# 웹 검색 (네트워크 필요)
+codex exec --skip-git-repo-check --sandbox danger-full-access "질문" 2>/dev/null
 
-# 웹 검색 예시
-codex exec "2024년 Python 3.13 새로운 기능"
-codex exec "OpenAI o3 모델 발표 내용"
+# 브레인스토밍/코드 리뷰 (네트워크 불필요)
+codex exec --skip-git-repo-check --sandbox read-only "질문" 2>/dev/null
+```
 
-# 브레인스토밍 예시
-codex exec "마이크로서비스 vs 모놀리식 아키텍처 장단점 분석"
-codex exec "CLI 도구의 UX를 개선할 수 있는 방법들"
+## 예시
 
-# 코드 리뷰/설계 예시
-codex exec "React에서 상태 관리 라이브러리 선택 기준"
-codex exec "이 API 설계의 문제점: [설계 내용]"
+```bash
+# 웹 검색
+codex exec --skip-git-repo-check --sandbox danger-full-access "쏘카 2026년 영업이익 전망" 2>/dev/null
 
-# Second opinion 예시
-codex exec "캐싱 전략으로 Redis vs Memcached 중 어떤 것이 적합한지: [상황 설명]"
+# 브레인스토밍
+codex exec --skip-git-repo-check --sandbox read-only "마이크로서비스 vs 모놀리식 장단점" 2>/dev/null
 ```
 
 ## 주의사항
 
-1. **필요할 때만 사용**: 이미 확실하게 알고 있는 정보는 codex 호출 없이 답변
-2. **명확한 질문**: 효율을 위해 구체적인 질문/상황 설명 작성
-3. **결과 요약**: codex 결과를 그대로 전달하지 말고 핵심만 요약하여 답변
-4. **맥락 제공**: 브레인스토밍이나 코드 리뷰 시 충분한 맥락을 함께 전달
-
-## 트리거 조건
-
-다음 상황에서 자동으로 codex를 사용:
-- "최신", "최근", "현재", "지금" 등 시간 관련 키워드와 함께 정보 요청
-- 사용자가 직접 웹 검색 요청
-- 복잡한 설계/아키텍처 결정이 필요한 상황
-- Claude가 여러 선택지 사이에서 불확실할 때
-- "어떻게 생각해?", "다른 방법은?" 등 의견을 구하는 질문
+- 웹 검색 시 `--sandbox danger-full-access` 필수
+- codex 결과를 그대로 전달하지 말고 핵심만 요약하여 답변
+- `2>/dev/null`로 생각 토큰 제외
