@@ -61,6 +61,7 @@
     "deny": [],
     "ask": []
   },
+  "model": "opus",
   "statusLine": {
     "type": "command",
     "command": "bash -c 'node \"$(ls -td ~/.claude/plugins/cache/claude-hud/claude-hud/*/ 2>/dev/null | head -1)dist/index.js\"'"
@@ -68,8 +69,8 @@
   "enabledPlugins": {
     "pyright-lsp@claude-plugins-official": true,
     "context7@claude-plugins-official": true,
-    "claude-hud@claude-hud": true
+    "claude-hud@claude-hud": true,
+    "superpowers@superpowers-marketplace": true
   },
-  "alwaysThinkingEnabled": true,
-  "model": "opus"
+  "alwaysThinkingEnabled": true
 }
