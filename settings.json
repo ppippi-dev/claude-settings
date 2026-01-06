@@ -43,6 +43,7 @@
       "Skill(python-style)",
       "Skill(codex-search)",
       "Skill(skill-creator)",
+      "Skill(pr-review-comments)",
       "WebFetch(domain:*)",
       "WebSearch",
       "mcp__playwright__browser_click",
