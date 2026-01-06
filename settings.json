@@ -44,6 +44,7 @@
       "Skill(codex-search)",
       "Skill(skill-creator)",
       "Skill(pr-review-comments)",
+      "Skill(superpowers:*)",
       "WebFetch(domain:*)",
       "WebSearch",
       "mcp__playwright__browser_click",
