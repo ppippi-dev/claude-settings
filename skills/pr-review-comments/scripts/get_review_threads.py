@@ -50,6 +50,18 @@ query($owner: String!, $repo: String!, $number: Int!, $cursor: String) {
 """
 
 
+RESOLVE_MUTATION = """
+mutation($threadId: ID!) {
+  resolveReviewThread(input: {threadId: $threadId}) {
+    thread {
+      id
+      isResolved
+    }
+  }
+}
+"""
+
+
 def run_gh_api(query: str, variables: dict) -> dict:
     """Execute GraphQL query using gh cli."""
     cmd = ["gh", "api", "graphql", "-f", f"query={query}"]
@@ -65,6 +77,17 @@ def run_gh_api(query: str, variables: dict) -> dict:
         sys.exit(1)
 
     return json.loads(result.stdout)
+
+
+def resolve_thread(thread_id: str) -> bool:
+    """Resolve a single thread. Returns True on success."""
+    cmd = [
+        "gh", "api", "graphql",
+        "-f", f"query={RESOLVE_MUTATION}",
+        "-f", f"threadId={thread_id}"
+    ]
+    result = subprocess.run(cmd, capture_output=True, text=True)
+    return result.returncode == 0
 
 
 def fetch_all_threads(owner: str, repo: str, pr_number: int) -> list:
@@ -132,6 +155,9 @@ def main():
         "--all", action="store_true", help="Include resolved threads (default: unresolved only)"
     )
     parser.add_argument(
+        "--resolve-outdated", action="store_true", help="Auto-resolve outdated threads"
+    )
+    parser.add_argument(
         "--format", choices=["json", "summary"], default="json", help="Output format"
     )
 
@@ -142,6 +168,23 @@ def main():
 
     if not args.all:
         formatted = [t for t in formatted if not t["is_resolved"]]
+
+    # Auto-resolve outdated threads
+    if args.resolve_outdated:
+        resolved_count = 0
+        remaining = []
+        for t in formatted:
+            if t["is_outdated"] and not t["is_resolved"]:
+                if resolve_thread(t["thread_id"]):
+                    resolved_count += 1
+                    print(f"Auto-resolved outdated: {t['path']}:{t['line']}", file=sys.stderr)
+                else:
+                    remaining.append(t)
+            else:
+                remaining.append(t)
+        formatted = remaining
+        if resolved_count > 0:
+            print(f"\nAuto-resolved {resolved_count} outdated thread(s)\n", file=sys.stderr)
 
     if args.format == "summary":
         for i, t in enumerate(formatted, 1):

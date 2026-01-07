@@ -21,10 +21,11 @@ GitHub PR URL에서 정보 추출:
 ### 1. PR 코멘트 조회
 
 ```bash
-./scripts/get_review_threads.py <owner> <repo> <pr_number> --format summary
+./scripts/get_review_threads.py <owner> <repo> <pr_number> --format summary --resolve-outdated
 ```
 
-unresolved 코멘트만 가져옴 (--all 옵션으로 전체 조회 가능)
+- unresolved 코멘트만 가져옴 (--all 옵션으로 전체 조회 가능)
+- `--resolve-outdated`: outdated 코멘트를 자동으로 resolve 처리
 
 ### 2. 각 코멘트 순차 처리
 
@@ -57,7 +58,7 @@ unresolved 코멘트만 가져옴 (--all 옵션으로 전체 조회 가능)
 **스킵 가능한 경우:**
 - 단순 질문 (코드로 해결 불가)
 - 이미 반영된 내용
-- outdated 코멘트 (코드가 이미 변경됨)
+- outdated 코멘트 → `--resolve-outdated` 옵션으로 자동 처리됨
 - 의견 차이로 논의가 필요한 경우 (사용자 확인 필요)
 
 ## 예시 실행
@@ -66,14 +67,13 @@ unresolved 코멘트만 가져옴 (--all 옵션으로 전체 조회 가능)
 사용자: https://github.com/socar-inc/ai-agent-platform/pull/123 리뷰 확인해줘
 
 1. URL 파싱 → owner: socar-inc, repo: ai-agent-platform, pr_number: 123
-2. get_review_threads.py socar-inc ai-agent-platform 123 --format summary
-3. 코멘트 1/3: src/api.py:42 "이 함수에 에러 핸들링 추가 필요"
+2. get_review_threads.py socar-inc ai-agent-platform 123 --format summary --resolve-outdated
+   → outdated 코멘트 2개 자동 resolve됨
+3. 코멘트 1/2: src/api.py:42 "이 함수에 에러 핸들링 추가 필요"
    → 코드 읽기 → 에러 핸들링 추가 → resolve_thread.py <thread_id>
-4. 코멘트 2/3: src/utils.py:15 "이 변수명이 뭔가요?"
+4. 코멘트 2/2: src/utils.py:15 "이 변수명이 뭔가요?"
    → 단순 질문이므로 스킵, 다음으로
-5. 코멘트 3/3: src/model.py:88 "타입 힌트 추가해주세요"
-   → 타입 힌트 추가 → resolve_thread.py <thread_id>
-6. 완료 보고
+5. 완료 보고
 ```
 
 ## 스크립트
@@ -89,8 +89,8 @@ PR의 리뷰 스레드 목록 조회 (GraphQL API 사용)
 # 전체 조회
 ./scripts/get_review_threads.py <owner> <repo> <pr_number> --all
 
-# 요약 형식
-./scripts/get_review_threads.py <owner> <repo> <pr_number> --format summary
+# 요약 형식 + outdated 자동 resolve (권장)
+./scripts/get_review_threads.py <owner> <repo> <pr_number> --format summary --resolve-outdated
 ```
 
 ### resolve_thread.py
