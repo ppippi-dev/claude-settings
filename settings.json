@@ -75,7 +75,8 @@
     "pyright-lsp@claude-plugins-official": true,
     "context7@claude-plugins-official": true,
     "claude-hud@claude-hud": true,
-    "superpowers@superpowers-marketplace": true
+    "superpowers@superpowers-marketplace": true,
+    "code-simplifier@claude-plugins-official": true
   },
   "alwaysThinkingEnabled": true
 }
