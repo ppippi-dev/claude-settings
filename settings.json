@@ -60,7 +60,10 @@
       "mcp__playwright__browser_type",
       "mcp__playwright__browser_wait_for",
       "Bash(~/.claude/skills/pr-review-comments/scripts/get_review_threads.py:*)",
-      "Bash(~/.claude/skills/pr-review-comments/scripts/resolve_thread.py:*)"
+      "Bash(~/.claude/skills/pr-review-comments/scripts/resolve_thread.py:*)",
+      "Bash(head:*)",
+      "Bash(tree:*)",
+      "Bash(sort:*)"
     ],
     "deny": [],
     "ask": [],
