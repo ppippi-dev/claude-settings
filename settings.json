@@ -83,5 +83,29 @@
     "ralph-wiggum@claude-code-plugins": true,
     "atlassian@claude-plugins-official": true
   },
-  "alwaysThinkingEnabled": true
+  "alwaysThinkingEnabled": true,
+  "hooks": {
+    "Notification": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/opt/homebrew/bin/terminal-notifier -title 'Claude Code' -message 'User input required'"
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/opt/homebrew/bin/terminal-notifier -title 'Claude Code' -message 'Request finished'"
+          }
+        ]
+      }
+    ]
+  }
 }
