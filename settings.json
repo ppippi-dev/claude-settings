@@ -92,6 +92,10 @@
           {
             "type": "command",
             "command": "/opt/homebrew/bin/terminal-notifier -title 'Claude Code' -message 'User input required'"
+          },
+          {
+            "type": "command",
+            "command": "afplay /System/Library/Sounds/Frog.aiff"
           }
         ]
       }
@@ -103,6 +107,10 @@
           {
             "type": "command",
             "command": "/opt/homebrew/bin/terminal-notifier -title 'Claude Code' -message 'Request finished'"
+          },
+          {
+            "type": "command",
+            "command": "afplay /System/Library/Sounds/Frog.aiff"
           }
         ]
       }
