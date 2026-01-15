@@ -1,6 +1,9 @@
 # Ignore everything
 *
 
+# Explicitly ignore history (personal session logs)
+history/
+
 # But not these files
 !.gitignore
 !CLAUDE.md
