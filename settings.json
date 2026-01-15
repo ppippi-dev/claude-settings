@@ -64,10 +64,16 @@
       "Bash(~/.claude/skills/pr-review-comments/scripts/resolve_thread.py:*)",
       "Bash(head:*)",
       "Bash(tree:*)",
-      "Bash(sort:*)"
+      "Bash(sort:*)",
+      "Skill(mem-analyzer)",
+      "mcp__plugin_claude-mem_mcp-search__search",
+      "mcp__plugin_claude-mem_mcp-search__get_observations"
     ],
     "deny": [],
-    "ask": ["Bash(git push:*)", "Bash(rm -rf:*)"],
+    "ask": [
+      "Bash(git push:*)",
+      "Bash(rm -rf:*)"
+    ],
     "defaultMode": "acceptEdits"
   },
   "model": "opus",
@@ -114,7 +120,8 @@
     "code-simplifier@claude-plugins-official": true,
     "ralph-wiggum@claude-code-plugins": true,
     "superpowers@claude-plugins-official": true,
-    "playwright@claude-plugins-official": true
+    "playwright@claude-plugins-official": true,
+    "claude-mem@thedotmack": true
   },
   "alwaysThinkingEnabled": true
 }
