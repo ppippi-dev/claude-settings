@@ -67,7 +67,7 @@
       "Bash(sort:*)"
     ],
     "deny": [],
-    "ask": [],
+    "ask": ["Bash(git push:*)", "Bash(rm -rf:*)"],
     "defaultMode": "acceptEdits"
   },
   "model": "opus",
