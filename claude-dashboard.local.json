@@ -1,0 +1,11 @@
+{
+  "language": "auto",
+  "plan": "max",
+  "displayMode": "custom",
+  "lines": [
+    ["projectInfo", "context", "rateLimit5h"]
+  ],
+  "cache": {
+    "ttlSeconds": 60
+  }
+}
