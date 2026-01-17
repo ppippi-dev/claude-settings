@@ -48,8 +48,6 @@ GitHub PR URL에서 정보 추출:
    - 반영 필요: 코드 수정 후 resolve
    - 반영 불필요: 스킵 이유 설명 후 **자동 resolve** (단순 질문, 사소한 의견 등)
    - 논의 필요: 사용자에게 확인 요청 (resolve 하지 않음)
-   - 판단 애매: codex-search로 second opinion 요청 후 결정
-4. **codex-search 활용** - 복잡한 코드 수정, 판단이 애매한 경우 second opinion 요청
 
 ### 3. Resolve 처리
 
