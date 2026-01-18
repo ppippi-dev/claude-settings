@@ -42,6 +42,7 @@
       "Skill(helm-infra)",
       "Skill(skill-creator)",
       "Skill(pr-review-comments)",
+      "Skill(session-wrap:session-wrap)",
       "Skill(superpowers:*)",
       "WebFetch(domain:*)",
       "WebSearch",
