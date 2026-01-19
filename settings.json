@@ -109,7 +109,7 @@
   },
   "statusLine": {
     "type": "command",
-    "command": "node ~/.claude/plugins/cache/claude-dashboard/claude-dashboard/1.2.0/dist/index.js"
+    "command": "node ~/.claude/plugins/cache/claude-dashboard/claude-dashboard/1.3.0/dist/index.js"
   },
   "enabledPlugins": {
     "pyright-lsp@claude-plugins-official": true,
